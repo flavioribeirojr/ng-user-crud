@@ -7,6 +7,12 @@ export class UserService {
     return this.parseFromLocalStorage();
   }
 
+  getByID(id: string) {
+    const users = this.parseFromLocalStorage();
+
+    return users.find(user => user.id === id);
+  }
+
   erase(user: UserModel) {
     const users = this.parseFromLocalStorage();
     const usersWithoutDeleted = users
@@ -22,6 +28,18 @@ export class UserService {
       ...users,
       user
     ]);
+  }
+
+  update(id: string, userUpdated: UserModel) {
+    const users = this.parseFromLocalStorage();
+    const updatedUserIndex = users.findIndex(user => user.id === id);
+
+    users[updatedUserIndex] = new UserModel({
+      ...userUpdated,
+      id
+    });
+
+    this.saveUsersToStorage(users);
   }
 
   private parseFromLocalStorage(): UserModel[] {

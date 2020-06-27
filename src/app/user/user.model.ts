@@ -29,7 +29,7 @@ export class UserModel implements User {
     this.fatherName = userProperties.fatherName;
     this.motherName = userProperties.motherName;
     this.email = userProperties.email;
-    this.password = userProperties.email;
+    this.password = userProperties.password;
     this.address = userProperties.address;
     this.landline = userProperties.landline;
     this.phoneNumber = userProperties.phoneNumber;

@@ -18,6 +18,7 @@ import { SharedModule } from '../shared/shared.module';
 import { UserFormModelService } from './user-form-model/user-form-model.service';
 import { UserService } from './user.service';
 import { UserListComponent } from './user-list/user-list.component';
+import { EditUserComponent } from './edit-user/edit-user.component';
 
 const routes: Routes = [
   {
@@ -27,6 +28,10 @@ const routes: Routes = [
   {
     path: 'new',
     component: NewUserFormComponent
+  },
+  {
+    path: 'edit/:id',
+    component: EditUserComponent
   }
 ];
 
@@ -48,7 +53,7 @@ const routes: Routes = [
     ReactiveFormsModule,
     SharedModule
   ],
-  declarations: [NewUserFormComponent, UserFormComponent, UserListComponent],
+  declarations: [NewUserFormComponent, UserFormComponent, UserListComponent, EditUserComponent],
   providers: [UserFormModelService, UserService]
 })
 export class UserModule { }

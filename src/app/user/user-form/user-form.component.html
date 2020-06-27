@@ -272,7 +272,7 @@
       <mat-label>
         Altura <small>(m)</small>
       </mat-label>
-      <input formControlName="height" matInput mask="0*,00" >
+      <input formControlName="height" matInput mask="0*,00" [dropSpecialCharacters]="false" >
       <app-validation-error-message
         [control]="formControls.height"
         [errorMessages]="{required: 'Campo obrigatório'}"
@@ -284,7 +284,7 @@
       <mat-label>
         Peso <small>(kg)</small>
       </mat-label>
-      <input formControlName="weight" matInput mask="0*,00" >
+      <input formControlName="weight" matInput mask="0*,00" [dropSpecialCharacters]="false" >
       <app-validation-error-message
         [control]="formControls.weight"
         [errorMessages]="{required: 'Campo obrigatório'}"

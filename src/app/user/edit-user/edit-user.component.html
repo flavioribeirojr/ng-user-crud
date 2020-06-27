@@ -1,0 +1,18 @@
+<section class="edit-user">
+  <header class="edit-user-header">
+    <a
+      [routerLink]="['/users']"
+      class="edit-user-header-back"
+    >
+      <mat-icon>keyboard_backspace</mat-icon>
+    </a>
+    <h1 class="edit-user-header-title" *ngIf="user">
+      Edição do usuário {{ user.name }}
+    </h1>
+  </header>
+  <app-user-form
+    [form]="formGroup"
+    (onFormSubmit)="updateUser($event)"
+  >
+  </app-user-form>
+</section>

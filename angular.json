@@ -28,7 +28,8 @@
               },
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "deployUrl": "/ng-user-crud/"
           },
           "configurations": {
             "production": {

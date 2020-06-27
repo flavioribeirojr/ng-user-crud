@@ -43,7 +43,7 @@ export class EditUserComponent implements OnInit {
   }
 
   private initializeFormGroup(user: UserModel) {
-    const { address, ...userPlainObject } = user;
+    const {id, address, ...userPlainObject } = user;
 
     this.formGroup = this.userFormModelService.createForm({
       ...userPlainObject,

@@ -20,7 +20,7 @@ export class UserModel implements User {
   readonly color: string;
 
   constructor(userProperties: User) {
-    this.id = userProperties.id;
+    this.id = userProperties.id || this.generateUniqueID();
     this.name = userProperties.name;
     this.cpf = userProperties.cpf;
     this.rg = userProperties.rg;
@@ -37,5 +37,9 @@ export class UserModel implements User {
     this.weight = userProperties.weight;
     this.bloodType = userProperties.bloodType;
     this.color = userProperties.color;
+  }
+
+  private generateUniqueID() {
+    return Math.random().toString(36).substr(2, 9);
   }
 }

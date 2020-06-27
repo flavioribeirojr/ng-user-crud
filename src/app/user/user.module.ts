@@ -7,6 +7,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatIconModule } from '@angular/material/icon';
 import { NgxMaskModule} from 'ngx-mask';
 import { ColorPickerModule } from 'ngx-color-picker';
 import { UserFormComponent } from './user-form/user-form.component';
@@ -37,6 +40,9 @@ const routes: Routes = [
     MatInputModule,
     MatSelectModule,
     MatButtonModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatIconModule,
     ColorPickerModule,
     FormsModule,
     ReactiveFormsModule,

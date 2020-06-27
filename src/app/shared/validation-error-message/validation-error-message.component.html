@@ -1,8 +1,7 @@
-<ng-container *ngIf="hasError">
+<div class="validation-error" *ngIf="hasError">
   <p
     class="validation-error-message"
-    *ngFor="let error of control.errors | keyvalue"
   >
-    * {{ errorMessages[error.key] }}
+    * {{ firstError }}
   </p>
-</ng-container>
+</div>

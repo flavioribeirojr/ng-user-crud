@@ -16,7 +16,14 @@ export class ValidationErrorMessageComponent implements OnInit {
   }
 
   get hasError() {
-    return this.control.errors && this.control.dirty && this.control.touched;
+    return this.control.errors && (this.control.dirty || this.control.touched);
+  }
+
+  get firstError() {
+    const errorKeys = Object.keys(this.control.errors);
+    const firstErrorKey = errorKeys[0];
+
+    return this.errorMessages[firstErrorKey];
   }
 
 }

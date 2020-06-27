@@ -1,5 +1,10 @@
-.validation-error-message {
-  font-size: 13px;
-  padding: 0 1rem;
-  color: rgb(221, 68, 68);
+.validation-error {
+  position: absolute;
+  top: 105%;
+
+  .validation-error-message {
+    font-size: 13px;
+    padding: 0 1rem;
+    color: rgb(221, 68, 68);
+  }
 }

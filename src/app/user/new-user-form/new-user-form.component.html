@@ -1,0 +1,9 @@
+<section class="new-user-form">
+  <header class="new-user-form-header">
+    <h1 class="new-user-form-header-title">
+      Cadastro de Usuário
+    </h1>
+  </header>
+  <app-user-form [form]="formGroup" (onFormSubmit)="saveUser($event)">
+  </app-user-form>
+</section>

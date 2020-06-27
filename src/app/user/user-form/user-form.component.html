@@ -1,0 +1,342 @@
+<form class="user-form" [formGroup]="form" (submit)="onSubmit()">
+  <h2 class="user-form-title">
+    Informações pessoais
+  </h2>
+  <div class="user-form-row">
+    <mat-form-field class="user-form-row-input">
+      <mat-label>
+        Nome
+      </mat-label>
+      <input matInput formControlName="name" >
+      <app-validation-error-message
+        [control]="formControls.name"
+        [errorMessages]="{required: 'Campo obrigatório'}"
+      >
+      </app-validation-error-message>
+    </mat-form-field>
+    <mat-form-field class="user-form-row-input">
+      <mat-label>
+        CPF
+      </mat-label>
+      <input
+        formControlName="cpf"
+        matInput
+        mask="000.000.000-00"
+      >
+      <app-validation-error-message
+        [control]="formControls.cpf"
+        [errorMessages]="{required: 'Campo obrigatório', cpf: 'Deve ser um CPF válido'}"
+      >
+      </app-validation-error-message>
+    </mat-form-field>
+
+    <mat-form-field class="user-form-row-input">
+      <mat-label>
+        RG
+      </mat-label>
+      <input formControlName="rg" matInput >
+      <app-validation-error-message
+        [control]="formControls.rg"
+        [errorMessages]="{required: 'Campo obrigatório'}"
+      >
+      </app-validation-error-message>
+    </mat-form-field>
+  </div>
+
+  <div class="user-form-row">
+    <mat-form-field class="user-form-row-input">
+      <mat-label>
+        Data de Nascimento
+      </mat-label>
+      <input
+        formControlName="birthday"
+        matInput
+        mask="00/00/0000"
+        [dropSpecialCharacters]="false"
+      >
+      <app-validation-error-message
+        [control]="formControls.birthday"
+        [errorMessages]="{required: 'Campo obrigatório', birthday: 'Deve ser um aniversário válido'}"
+      >
+      </app-validation-error-message>
+    </mat-form-field>
+
+    <mat-form-field class="user-form-row-input">
+      <mat-label>
+        Signo
+      </mat-label>
+      <input formControlName="sign" matInput >
+      <app-validation-error-message
+        [control]="formControls.sign"
+        [errorMessages]="{required: 'Campo obrigatório'}"
+      >
+      </app-validation-error-message>
+    </mat-form-field>
+  </div>
+
+  <h2 class="user-form-title">
+    Filiação
+  </h2>
+
+  <div class="user-form-row">
+    <mat-form-field class="user-form-row-input">
+      <mat-label>
+        Nome do pai
+      </mat-label>
+      <input formControlName="fatherName" matInput >
+      <app-validation-error-message
+        [control]="formControls.fatherName"
+        [errorMessages]="{required: 'Campo obrigatório'}"
+      >
+      </app-validation-error-message>
+    </mat-form-field>
+
+    <mat-form-field class="user-form-row-input">
+      <mat-label>
+        Nome da mãe
+      </mat-label>
+      <input formControlName="motherName" matInput >
+      <app-validation-error-message
+        [control]="formControls.motherName"
+        [errorMessages]="{required: 'Campo obrigatório'}"
+      >
+      </app-validation-error-message>
+    </mat-form-field>
+  </div>
+
+  <h2 class="user-form-title">
+    Conta
+  </h2>
+
+  <div class="user-form-row">
+    <mat-form-field class="user-form-row-input">
+      <mat-label>
+        Email
+      </mat-label>
+      <input formControlName="email" type="email" matInput >
+      <app-validation-error-message
+        [control]="formControls.email"
+        [errorMessages]="{required: 'Campo obrigatório', email: 'Deve ser um email válido'}"
+      >
+      </app-validation-error-message>
+    </mat-form-field>
+
+    <mat-form-field class="user-form-row-input">
+      <mat-label>
+        Senha
+      </mat-label>
+      <input formControlName="password" type="password" matInput >
+      <app-validation-error-message
+        [control]="formControls.password"
+        [errorMessages]="{required: 'Campo obrigatório'}"
+      >
+      </app-validation-error-message>
+    </mat-form-field>
+
+    <mat-form-field class="user-form-row-input">
+      <mat-label>
+        Repita sua senha
+      </mat-label>
+      <input formControlName="passwordConfirmation" type="password" matInput >
+      <app-validation-error-message
+        [control]="formControls.passwordConfirmation"
+        [errorMessages]="{required: 'Campo obrigatório', passwordsDontMatch: 'Deve ser igual à sua senha'}"
+      >
+      </app-validation-error-message>
+    </mat-form-field>
+  </div>
+
+  <h2 class="user-form-title">
+    Endereço
+  </h2>
+
+  <div class="user-form-row">
+    <mat-form-field class="user-form-row-input">
+      <mat-label>
+        Endereço
+      </mat-label>
+      <input formControlName="streetAddress" matInput >
+      <app-validation-error-message
+        [control]="formControls.streetAddress"
+        [errorMessages]="{required: 'Campo obrigatório'}"
+      >
+      </app-validation-error-message>
+    </mat-form-field>
+
+    <mat-form-field class="user-form-row-input">
+      <mat-label>
+        Cidade
+      </mat-label>
+      <input formControlName="city" matInput >
+      <app-validation-error-message
+        [control]="formControls.city"
+        [errorMessages]="{required: 'Campo obrigatório'}"
+      >
+      </app-validation-error-message>
+    </mat-form-field>
+
+    <mat-form-field class="user-form-row-select">
+      <mat-label>
+        Estado
+      </mat-label>
+      <mat-select formControlName="state">
+        <mat-option
+          *ngFor="let state of states"
+          [value]="state.code"
+        >
+          {{ state.name }}
+        </mat-option>
+      </mat-select>
+      <app-validation-error-message
+        [control]="formControls.state"
+        [errorMessages]="{required: 'Campo obrigatório'}"
+      >
+      </app-validation-error-message>
+    </mat-form-field>
+  </div>
+
+  <div class="user-form-row">
+    <mat-form-field class="user-form-row-input">
+      <mat-label>
+        Bairro
+      </mat-label>
+      <input formControlName="neighborhood" matInput >
+      <app-validation-error-message
+        [control]="formControls.neighborhood"
+        [errorMessages]="{required: 'Campo obrigatório'}"
+      >
+      </app-validation-error-message>
+    </mat-form-field>
+
+    <mat-form-field class="user-form-row-input">
+      <mat-label>
+        Número
+      </mat-label>
+      <input formControlName="number" matInput >
+      <app-validation-error-message
+        [control]="formControls.number"
+        [errorMessages]="{required: 'Campo obrigatório'}"
+      >
+      </app-validation-error-message>
+    </mat-form-field>
+
+    <mat-form-field class="user-form-row-input">
+      <mat-label>
+        CEP
+      </mat-label>
+      <input formControlName="postalCode" matInput mask="00000-000" >
+      <app-validation-error-message
+        [control]="formControls.postalCode"
+        [errorMessages]="{required: 'Campo obrigatório'}"
+      >
+      </app-validation-error-message>
+    </mat-form-field>
+  </div>
+
+  <h2 class="user-form-title">
+    Contato
+  </h2>
+
+  <div class="user-form-row">
+    <mat-form-field class="user-form-row-input">
+      <mat-label>
+        Telefone Fixo
+      </mat-label>
+      <input formControlName="landline" matInput mask="(00) 0000-0000" >
+      <app-validation-error-message
+        [control]="formControls.landline"
+        [errorMessages]="{required: 'Campo obrigatório'}"
+      >
+      </app-validation-error-message>
+    </mat-form-field>
+
+    <mat-form-field class="user-form-row-input">
+      <mat-label>
+        Celular
+      </mat-label>
+      <input formControlName="phoneNumber" matInput mask="(00) 00000-0000" >
+      <app-validation-error-message
+        [control]="formControls.phoneNumber"
+        [errorMessages]="{required: 'Campo obrigatório'}"
+      >
+      </app-validation-error-message>
+    </mat-form-field>
+  </div>
+
+  <h2 class="user-form-title">
+    Características Físicas
+  </h2>
+
+  <div class="user-form-row">
+    <mat-form-field class="user-form-row-input">
+      <mat-label>
+        Altura <small>(m)</small>
+      </mat-label>
+      <input formControlName="height" matInput mask="0*,00" >
+      <app-validation-error-message
+        [control]="formControls.height"
+        [errorMessages]="{required: 'Campo obrigatório'}"
+      >
+      </app-validation-error-message>
+    </mat-form-field>
+
+    <mat-form-field class="user-form-row-input">
+      <mat-label>
+        Peso <small>(kg)</small>
+      </mat-label>
+      <input formControlName="weight" matInput mask="0*,00" >
+      <app-validation-error-message
+        [control]="formControls.weight"
+        [errorMessages]="{required: 'Campo obrigatório'}"
+      >
+      </app-validation-error-message>
+    </mat-form-field>
+
+    <mat-form-field class="user-form-row-select">
+      <mat-label>
+        Tipo Sanguíneo
+      </mat-label>
+      <mat-select formControlName="bloodType">
+        <mat-option
+          *ngFor="let bloodType of bloodTypes"
+          [value]="bloodType"
+        >
+          {{ bloodType }}
+        </mat-option>
+      </mat-select>
+      <app-validation-error-message
+        [control]="formControls.bloodType"
+        [errorMessages]="{required: 'Campo obrigatório'}"
+      >
+      </app-validation-error-message>
+    </mat-form-field>
+  </div>
+
+  <h2 class="user-form-title">
+    Outros
+  </h2>
+
+  <div class="user-form-row">
+    <mat-form-field class="user-form-row-input">
+      <mat-label>
+        Cor Favorita
+      </mat-label>
+      <input
+        formControlName="color"
+        matInput
+        [colorPicker]="formControls.color.value"
+        (colorPickerChange)="onColorpickerChange($event)"
+        cpPosition="top-right"
+      >
+      <app-validation-error-message
+        [control]="formControls.color"
+        [errorMessages]="{required: 'Campo obrigatório'}"
+      >
+      </app-validation-error-message>
+    </mat-form-field>
+  </div>
+
+  <button class="user-form-save" mat-raised-button color="primary">
+    SALVAR
+  </button>
+</form>

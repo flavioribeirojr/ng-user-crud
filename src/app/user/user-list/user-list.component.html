@@ -13,7 +13,7 @@
     </a>
   </header>
   <div class="mat-elevation-z8">
-    <table mat-table [dataSource]="users">
+    <table mat-table [dataSource]="usersDataSource">
       <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef> Nome </th>
         <td mat-cell *matCellDef="let user"> {{ user.name }} </td>

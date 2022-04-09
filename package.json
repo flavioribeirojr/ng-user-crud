@@ -27,7 +27,7 @@
     "@fnando/cpf": "^1.0.1",
     "angular-cli-ghpages": "^0.6.2",
     "core-js": "^2.5.4",
-    "moment": "^2.27.0",
+    "moment": "^2.29.2",
     "ngx-color-picker": "^8.2.0",
     "ngx-mask": "^6.5.18",
     "rxjs": "~6.2.0",
